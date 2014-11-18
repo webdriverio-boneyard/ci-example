@@ -1,0 +1,33 @@
+{
+  "name": "ci-example",
+  "version": "0.0.0",
+  "description": "Project to demonstrate usage of WebdriverIO and WebdriverCSS in an CI process",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webdriverio/ci-example.git"
+  },
+  "keywords": [
+    "webdriverio",
+    "travisci",
+    "webdrivercss"
+  ],
+  "author": "Christian Bromann <christian@saucelabs.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webdriverio/ci-example/issues"
+  },
+  "homepage": "https://github.com/webdriverio/ci-example",
+  "devDependencies": {
+    "http-server": "^0.7.3",
+    "mocha": "^2.0.1",
+    "should": "^4.3.0",
+    "webdriverio": "^2.3.0"
+  }
+}

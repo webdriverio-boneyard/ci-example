@@ -1,12 +1,43 @@
 language: node_js
 
-node_js:
-    - '0.11'
-    - '0.10'
+node_js: "0.11"
 
-script: "exit 0"
+addons:
+  sauce_connect: true
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install imagemagick graphicsmagick libcairo2-dev
+
+before_script:
+  - "./node_modules/http-server -p 8080 > /dev/null 2>&1 &"
+
+script: "npm test"
 
 after_success:
-    - "git fetch --all"
-    - "git checkout gh-pages"
-    - "git merge master"
+  - "git fetch --all"
+  - "git checkout gh-pages"
+  - "git merge master"
+
+env:
+  global:
+    # SAUCE_USERNAME
+    - secure: IbnhNnzGXR9xI8on9rApIV6+PuzHua98gnLW2ZFIMHurt1D9aYLZTsAs7vjJDvSzRHjIAlosLFtWUdTrRL/0tkhc4MEsL9ZLmAjP/lULPJidvYAfQpUhKWcAjo0P+t5gkXYV3XIU/HRQ1vHidN/UeDwZJMYqHd6FHr2IQGFBVxI=
+    # SAUCE_ACCESS_KEY
+    - secure: LuLhC0kxnG9npu8lguvXv5hwf56HRu2CF1PNdnv0pieohskAwvnq7+NetAUj9d2LwKNjWZ3RJXIs+Yx3IMnkKa9R3FBgKv6XvGMN73jIuazn3dB4i+5WxkzywwgJ7XYxBQ+I+8TL9Oz3banf901ufUJfhIyVJy96JTgPy46OCbU=
+
+  matrix:
+    - _BROWSER: "chrome"
+      _PLATFORM: "Windows_8"
+      _VERSION: "34"
+    - _BROWSER: "firefox"
+      _PLATFORM: "Windows_8"
+      _VERSION: "29"

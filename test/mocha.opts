@@ -1,0 +1,6 @@
+test/bootstrap.js
+test/functional/*.js
+
+--timeout 1000000,
+--reporter spec
+--require should
