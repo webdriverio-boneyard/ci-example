@@ -28,6 +28,7 @@
     "http-server": "^0.7.3",
     "mocha": "^2.0.1",
     "should": "^4.3.0",
+    "webdrivercss": "^1.0.0",
     "webdriverio": "^2.3.0"
   }
 }
