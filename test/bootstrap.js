@@ -22,7 +22,9 @@ global.browser = webdriverio.remote({
         'idle-timeout': 900,
         tags: ['webdriverio', 'ci-example', process.env._BROWSER, process.env._PLATFORM, process.env._VERSION],
         name: 'ci example - ' + process.env._BROWSER,
-        build: process.env.TRAVIS_BUILD_NUMBER
+        build: process.env.TRAVIS_BUILD_NUMBER,
+        username: process.env.SAUCE_USERNAME,
+        accessKey: process.env.SAUCE_ACCESS_KEY
     }
 
 });
