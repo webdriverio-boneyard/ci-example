@@ -14,7 +14,8 @@ before_install:
   - sudo apt-get install imagemagick graphicsmagick libcairo2-dev
 
 before_script:
-  - "./node_modules/http-server -p 8080 > /dev/null 2>&1 &"
+  - "npm install -g http-server"
+  - "http-server -p 8080 > /dev/null 2>&1 &"
 
 script: "npm test"
 
