@@ -12,7 +12,7 @@ global.browser = webdriverio.remote({
      * Note: username and access key also not needed here
      * becuase sauce connect was established with the desired user
      */
-    // port: 4445,
+    port: 4445,
 
     desiredCapabilities: {
         browserName: (process.env._BROWSER || '').replace(/_/g, ' '),
