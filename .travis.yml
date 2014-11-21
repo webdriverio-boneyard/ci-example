@@ -30,6 +30,8 @@ env:
     - secure: IbnhNnzGXR9xI8on9rApIV6+PuzHua98gnLW2ZFIMHurt1D9aYLZTsAs7vjJDvSzRHjIAlosLFtWUdTrRL/0tkhc4MEsL9ZLmAjP/lULPJidvYAfQpUhKWcAjo0P+t5gkXYV3XIU/HRQ1vHidN/UeDwZJMYqHd6FHr2IQGFBVxI=
     # SAUCE_ACCESS_KEY
     - secure: LuLhC0kxnG9npu8lguvXv5hwf56HRu2CF1PNdnv0pieohskAwvnq7+NetAUj9d2LwKNjWZ3RJXIs+Yx3IMnkKa9R3FBgKv6XvGMN73jIuazn3dB4i+5WxkzywwgJ7XYxBQ+I+8TL9Oz3banf901ufUJfhIyVJy96JTgPy46OCbU=
+    # APPLITOOLS_KEY
+    - secure: WsNsGap6z/kuSl3LWHcQyjU6HyudokuRRcwirf6bHtCwtnbCMKa7la9VkSAxdCKP9UJq63SWzOUKIo/d5tA5puS3Cp86o2o8iN7e+uqPa3x71nHyq9dflOu1NCrdMMEqYtNvyxPP0jntiF2lU16o637/gXoX1HjYzXzX9oB+ob0=
 
   matrix:
     - _BROWSER: "chrome"

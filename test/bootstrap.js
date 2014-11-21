@@ -12,19 +12,26 @@ global.browser = webdriverio.remote({
      * Note: username and access key also not needed here
      * becuase sauce connect was established with the desired user
      */
-    port: 4445,
+    port: process.env.TRAVIS ? 4445 : 4444,
+    user: process.env.SAUCE_USERNAME,
+    key: process.env.SAUCE_ACCESS_KEY,
 
-    desiredCapabilities: {
-        browserName: (process.env._BROWSER || '').replace(/_/g, ' '),
-        platform: (process.env._PLATFORM || '').replace(/_/g, ' '),
-        version: process.env._VERSION,
-        'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    desiredCapabilities: process.env.TRAVIS ? {
+        browserName: (process.env._BROWSER || 'chrome').replace(/_/g, ' '),
+        platform: (process.env._PLATFORM || 'Windows 8').replace(/_/g, ' '),
+        version: process.env._VERSION || 35,
+        'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER || 'local',
         'idle-timeout': 900,
         tags: ['webdriverio', 'ci-example', process.env._BROWSER, process.env._PLATFORM, process.env._VERSION],
-        name: 'ci example - ' + process.env._BROWSER,
-        build: process.env.TRAVIS_BUILD_NUMBER,
-        username: process.env.SAUCE_USERNAME,
-        accessKey: process.env.SAUCE_ACCESS_KEY
+        name: 'ci example - ' + (process.env._BROWSER || 'local'),
+        build: process.env.TRAVIS_BUILD_NUMBER
+    } : {
+        browserName: 'chrome'
     }
 
+});
+
+webdrivercss.init(global.browser, {
+    screenshotRoot: './test/shots',
+    // key: process.env.APPLITOOLS_KEY
 });
