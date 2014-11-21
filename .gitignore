@@ -30,3 +30,6 @@ node_modules
 # regression images
 test/shots/*
 !test/shots/*.baseline.png
+
+# demo files
+demo.js
