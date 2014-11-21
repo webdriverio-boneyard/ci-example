@@ -14,6 +14,7 @@ describe('ui tests', function() {
                 elem: '#section-contact .container'
             }], function(err, res) {
                 
+                console.log('Testresult for startpage\n', res);
                 res.teamsection[0].isWithinMisMatchTolerance.should.be.true;
                 res.contactForm[0].isWithinMisMatchTolerance.should.be.true;
 
